@@ -85,10 +85,20 @@ class MCLogistic(MCModel):
 
     def __init__(self, *, nfeatures, nclasses):
         super().__init__(nfeatures=nfeatures, nclasses=nclasses)
-        self.W = np.zeros((nclasses, nfeatures), dtype=np.float)
+        self.logits = []
+        for w in range(0, nclasses):
+            self.logits.append(np.zeros((nclasses, nfeatures), dtype=np.float))
+        self.Logits = np.array(self.logits)
+
+    def sigmoid(X):
+        # sigmoid function
+        denom = 1.0 + np.exp(-1.0 * X)
+        f = 1.0 / denom
+        return f
 
     def fit(self, *, X, y, lr):
         # TODO: Implement this!
+
         raise Exception("You must implement this method!")
 
     def predict(self, X):
