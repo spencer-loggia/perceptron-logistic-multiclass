@@ -64,6 +64,9 @@ class MCModel(Model):
         super().__init__(nfeatures)
         self.num_classes = nclasses
 
+    def scoreOVA(self, Xi):
+        return np.dot(self.Ws[1], Xi)
+
 
 class MCPerceptron(MCModel):
 
@@ -99,6 +102,7 @@ class MCPerceptron(MCModel):
             predictions.append(np.argmax(dist))
         return predictions
 
+
 class MCLogistic(MCModel):
 
     def __init__(self, *, nfeatures, nclasses):
@@ -124,7 +128,7 @@ class MCLogistic(MCModel):
                     grad = X[i] - (probs[k] * X[i])
                 else:
                     grad = 0 - probs[k] * X[i]
-                self.Ws[k] = self.Ws[k] + 10*lr*grad
+                self.Ws[k] = self.Ws[k] + lr*grad
 
     def predict(self, X):
         X = self._fix_test_feats(X)
@@ -144,6 +148,8 @@ class MCLogistic(MCModel):
         softmax = numerator / denominator
         return softmax
 
+
+
 class OneVsAll(Model):
 
     def __init__(self, *, nfeatures, nclasses, model_class):
@@ -153,10 +159,25 @@ class OneVsAll(Model):
         self.models = [model_class(nfeatures=nfeatures, nclasses=2) for _ in range(nclasses)]
 
     def fit(self, *, X, y, lr):
-        # TODO: Implement this!
-        raise Exception("You must implement this method!")
+        for k in range(0, len(self.models)):
+            # build new labels
+            new_y = []
+            for i in y:
+                if i == k:
+                    new_y.append(1)
+                else:
+                    new_y.append(0)
+            self.models[k].fit(X=X, y=new_y, lr=lr)
 
     def predict(self, X):
         X = self._fix_test_feats(X)
-        # TODO: Implement this!
-        raise Exception("You must implement this method!")
+        X = X.toarray()
+        predictions = []
+        for i in range(0, X.shape[0]):
+            scores = []
+            for k in range(0, self.num_classes):
+                scores.append(self.models[k].scoreOVA(X[i]))
+            predictions.append(np.argmax(scores))
+        return predictions
+
+

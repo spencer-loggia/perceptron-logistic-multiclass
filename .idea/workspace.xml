@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb3cb750-2fab-40f2-94f6-54d0a75bc96f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MLcode/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MLcode/speech.dev.predictions" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/speech.dev.predictions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MLcode/speech.perceptron.model" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/speech.perceptron.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MLcode/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,13 +86,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/MLcode/models.py</url>
-          <line>88</line>
+          <line>91</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/MLcode/models.py</url>
-          <line>89</line>
+          <line>92</line>
           <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MLcode/models.py</url>
+          <line>169</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MLcode/models.py</url>
+          <line>177</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MLcode/models.py</url>
+          <line>178</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
