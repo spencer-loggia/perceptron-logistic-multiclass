@@ -4,8 +4,9 @@
     <list default="true" id="fb3cb750-2fab-40f2-94f6-54d0a75bc96f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MLcode/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MLcode/speech.dev.predictions" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/speech.dev.predictions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MLcode/speech.perceptron.model" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/speech.perceptron.model" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MLcode/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/speech.mc_sm.train" beforeDir="false" afterPath="$PROJECT_DIR$/data/speech.mc_sm.train" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,5 +80,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MLcode/models.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MLcode/models.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

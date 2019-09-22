@@ -68,29 +68,44 @@ class MCModel(Model):
 class MCPerceptron(MCModel):
 
     def __init__(self, *, nfeatures, nclasses):
+        self.nclasses = nclasses
+        self.nfeatures = nfeatures
         super().__init__(nfeatures=nfeatures, nclasses=nclasses)
-        self.W = np.zeros((nclasses, nfeatures), dtype=np.float)
+        self.Ws = np.zeros((nclasses, nfeatures), dtype=np.float)
+
+    def score(self, Xi):
+        dist = []
+        for k in range(0, self.nclasses):
+            dist.append(np.dot(self.Ws, Xi))
+        return np.array(dist, dtype=np.float)
 
     def fit(self, *, X, y, lr):
-        # TODO: Implement this!
-        raise Exception("You must implement this method!")
+        X = self._fix_test_feats(X)
+        X = X.toarray()
+        for i in range(0, len(X)):
+            yhat_i = np.argmax(self.score(X[i]))
+            if yhat_i != y[i]:
+                Ws = self.Ws
+                self.Ws[yhat_i] = self.Ws[yhat_i] - lr * X[i]
+                self.Ws[y[i]] = self.Ws[y[i]] + lr * X[i]
 
     def predict(self, X):
         X = self._fix_test_feats(X)
-        # TODO: Implement this!
-        raise Exception("You must implement this method!")
-
+        if type(X) != np.ndarray:
+            X = X.toarray()
+        predictions = []
+        for i in range(0, len(X)):
+            dist = self.score(X[i])
+            predictions.append(np.argmax(dist))
+        return predictions
 
 class MCLogistic(MCModel):
 
     def __init__(self, *, nfeatures, nclasses):
-        self.nclasses = nclasses;
+        self.nclasses = nclasses
         self.nfeatures = nfeatures
         super().__init__(nfeatures=nfeatures, nclasses=nclasses)
-        self.ws = []
-        for w in range(0, nclasses):
-            self.ws.append(np.zeros(nfeatures, dtype=np.float))
-        self.Ws = np.array(self.ws)
+        self.Ws = np.zeros((nclasses, nfeatures), dtype=np.float)
 
     def logits(self, X):
         gs = []
@@ -123,14 +138,11 @@ class MCLogistic(MCModel):
         return predictions
 
     def softmax(self, logits):
-        # TODO: Implement this!
         stable_logits = logits - np.max(logits)
         numerator = np.exp(stable_logits)
         denominator = np.sum(numerator)
         softmax = numerator / denominator
         return softmax
-        raise Exception("You must implement this method!")
-
 
 class OneVsAll(Model):
 
