@@ -87,7 +87,7 @@ class MCLogistic(MCModel):
         super().__init__(nfeatures=nfeatures, nclasses=nclasses)
         self.ws = []
         for w in range(0, nclasses):
-            self.ws.append(np.ones(nfeatures, dtype=np.float))
+            self.ws.append(np.random.rand(nfeatures))
         self.Ws = np.array(self.ws)
 
     def logits(self, X):
@@ -100,12 +100,21 @@ class MCLogistic(MCModel):
     def fit(self, *, X, y, lr):
         # TODO: Implement this!
 
+
+
         raise Exception("You must implement this method!")
 
     def predict(self, X):
         X = self._fix_test_feats(X)
-        # TODO: Implement this!
-        raise Exception("You must implement this method!")
+        X = X.toarray()
+
+        prediction = []
+        for x in X:
+            softmax = self.softmax(self.logits(x))
+            prediction.append(np.argmax(softmax));
+            # TODO: Implement this!
+        return prediction
+        #raise Exception("You must implement this method!")
 
     def softmax(self, logits):
         # TODO: Implement this!

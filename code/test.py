@@ -7,15 +7,17 @@ import numpy as np
 
 from code import models
 
-from code import data
+from data import load_data
 
 test_LMC = models.MCLogistic(nfeatures=10, nclasses=10)
 
 for i in test_LMC.Ws:
-        print(i)
+        print("")
 
-X = [1, 1, 1, 1, 1, 5, 1, 1, 1, 1]
+X, y, nclasses = load_data("/Users/spencerloggia/MachineLearning/MLHW1/data/speech.mc.train")
 
-print(test_LMC.logits(X))
+#print(test_LMC.logits(X))
 
-print(test_LMC.softmax(test_LMC.logits(X)))
+#print("\n" + str(test_LMC.softmax(test_LMC.logits(X))))
+
+print("\n" + str(test_LMC.predict(X)))

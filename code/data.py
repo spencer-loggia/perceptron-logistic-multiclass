@@ -63,7 +63,6 @@ def load_data(filename, mc=True):
                     X_nonzero_cols.append(feature_index)
                     X_nonzero_values.append(value)
 
-    X = csr_matrix((X_nonzero_values, (X_nonzero_rows, X_nonzero_cols)), dtype=np.float)
     y = np.array(y, dtype=np.int)
 
     return X, y, max_class + 1
