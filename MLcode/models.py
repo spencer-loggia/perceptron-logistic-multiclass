@@ -89,7 +89,7 @@ class MCLogistic(MCModel):
         super().__init__(nfeatures=nfeatures, nclasses=nclasses)
         self.ws = []
         for w in range(0, nclasses):
-            self.ws.append(np.random.rand(nfeatures))
+            self.ws.append(np.zeros(nfeatures, dtype=np.float))
         self.Ws = np.array(self.ws)
 
     def logits(self, X):
@@ -100,32 +100,27 @@ class MCLogistic(MCModel):
         return logits
 
     def fit(self, X, y, lr):
-        # TODO: Implement this!
-        prediction = self.predict(X)
-        for p in range(0, len(X)):
-            softmax = self.softmax(self.logits(X[p]))
-            Ws = self.Ws
-            w = Ws[prediction[p]]
-            xi = X[p]
-            sum = np.empty(self.nfeatures)
+        X = self._fix_test_feats(X)
+        X = X.toarray()
+        for i in range(0, len(X)):
             for k in range(0, self.nclasses):
-                if k == y[p]:
-                    prod = np.dot((softmax[k] - 1), xi)
+                probs = self.softmax(self.logits(X[i]))
+                if k == y[i]:
+                    grad = X[i] - (probs[k] * X[i])
                 else:
-                    prod = np.dot(softmax[k], xi)
-                sum += prod
-            self.Ws[prediction[p]] = w + (lr * sum)
+                    grad = 0 - probs[k] * X[i]
+                self.Ws[k] = self.Ws[k] + 10*lr*grad
 
     def predict(self, X):
         X = self._fix_test_feats(X)
-
-        prediction = []
-        for x in X:
-            softmax = self.softmax(self.logits(x))
-            prediction.append(np.argmax(softmax));
-            # TODO: Implement this!
-        return prediction
-        #raise Exception("You must implement this method!")
+        X = X.toarray()
+        predictions = []
+        for i in range(0, len(X)):
+            y = []
+            for k in range(0, self.nclasses):
+                y.append(np.dot(self.Ws[k], X[i]))
+            predictions.append(np.argmax(y))
+        return predictions
 
     def softmax(self, logits):
         # TODO: Implement this!

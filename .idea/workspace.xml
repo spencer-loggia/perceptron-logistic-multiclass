@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb3cb750-2fab-40f2-94f6-54d0a75bc96f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MLHW1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MLHW1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/TestHW1.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/compute_accuracy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MLcode/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MLcode/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/speech.mc_sm.train" beforeDir="false" afterPath="$PROJECT_DIR$/data/speech.mc_sm.train" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,21 +79,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/MLcode/models.py</url>
-          <line>116</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/MLcode/models.py</url>
-          <line>109</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

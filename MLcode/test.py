@@ -11,9 +11,7 @@ from data import load_data
 
 X, y, nclasses = load_data("/Users/spencerloggia/MachineLearning/MLHW1/data/speech.mc_sm.train")
 
-X = X.toarray();
-
-test_LMC = models.MCLogistic(nfeatures=len(X[0]), nclasses=nclasses)
+test_LMC = models.MCLogistic(nfeatures=X.shape[0], nclasses=nclasses)
 
 #print(test_LMC.logits(X))
 
@@ -21,7 +19,7 @@ test_LMC = models.MCLogistic(nfeatures=len(X[0]), nclasses=nclasses)
 
 print("\n" + str(test_LMC.predict(X)))
 
-for i in range(0, 100):
-    print("\n" + str(test_LMC.fit(X, y, .1)))
+for i in range(0, 15):
+    print("\n" + str(test_LMC.fit(X, y, .001)))
 
 print("\n" + str(test_LMC.predict(X)))
