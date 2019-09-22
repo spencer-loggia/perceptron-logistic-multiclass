@@ -84,6 +84,8 @@ class MCPerceptron(MCModel):
 class MCLogistic(MCModel):
 
     def __init__(self, *, nfeatures, nclasses):
+        self.nclasses = nclasses;
+        self.nfeatures = nfeatures
         super().__init__(nfeatures=nfeatures, nclasses=nclasses)
         self.ws = []
         for w in range(0, nclasses):
@@ -97,16 +99,25 @@ class MCLogistic(MCModel):
         logits = np.array(gs)
         return logits
 
-    def fit(self, *, X, y, lr):
+    def fit(self, X, y, lr):
         # TODO: Implement this!
-
-
-
-        raise Exception("You must implement this method!")
+        prediction = self.predict(X)
+        for p in range(0, len(X)):
+            softmax = self.softmax(self.logits(X[p]))
+            Ws = self.Ws
+            w = Ws[prediction[p]]
+            xi = X[p]
+            sum = np.empty(self.nfeatures)
+            for k in range(0, self.nclasses):
+                if k == y[p]:
+                    prod = np.dot((softmax[k] - 1), xi)
+                else:
+                    prod = np.dot(softmax[k], xi)
+                sum += prod
+            self.Ws[prediction[p]] = w + (lr * sum)
 
     def predict(self, X):
         X = self._fix_test_feats(X)
-        X = X.toarray()
 
         prediction = []
         for x in X:
