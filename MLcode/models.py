@@ -76,7 +76,7 @@ class MCPerceptron(MCModel):
     def score(self, Xi):
         dist = []
         for k in range(0, self.nclasses):
-            dist.append(np.dot(self.Ws, Xi))
+            dist.append(np.dot(self.Ws[k], Xi))
         return np.array(dist, dtype=np.float)
 
     def fit(self, *, X, y, lr):
