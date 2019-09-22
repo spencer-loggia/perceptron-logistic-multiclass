@@ -85,16 +85,17 @@ class MCLogistic(MCModel):
 
     def __init__(self, *, nfeatures, nclasses):
         super().__init__(nfeatures=nfeatures, nclasses=nclasses)
-        self.logits = []
+        self.ws = []
         for w in range(0, nclasses):
-            self.logits.append(np.zeros((nclasses, nfeatures), dtype=np.float))
-        self.Logits = np.array(self.logits)
+            self.ws.append(np.ones(nfeatures, dtype=np.float))
+        self.Ws = np.array(self.ws)
 
-    def sigmoid(X):
-        # sigmoid function
-        denom = 1.0 + np.exp(-1.0 * X)
-        f = 1.0 / denom
-        return f
+    def logits(self, X):
+        gs = []
+        for w in self.Ws:
+            gs.append(np.dot(np.transpose(w), X))
+        logits = np.array(gs)
+        return logits
 
     def fit(self, *, X, y, lr):
         # TODO: Implement this!
@@ -108,6 +109,11 @@ class MCLogistic(MCModel):
 
     def softmax(self, logits):
         # TODO: Implement this!
+        stable_logits = logits - np.max(logits)
+        numerator = np.exp(stable_logits)
+        denominator = np.sum(numerator)
+        softmax = numerator / denominator
+        return softmax
         raise Exception("You must implement this method!")
 
 
