@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/MLcode/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MLcode/speech.dev.predictions" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/speech.dev.predictions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MLcode/speech.perceptron.model" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/speech.perceptron.model" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MLcode/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/MLcode/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +74,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

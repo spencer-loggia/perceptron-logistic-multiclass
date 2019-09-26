@@ -122,8 +122,8 @@ class MCLogistic(MCModel):
         X = self._fix_test_feats(X)
         X = X.toarray()
         for i in range(0, len(X)):
+            probs = self.softmax(self.logits(X[i]))
             for k in range(0, self.nclasses):
-                probs = self.softmax(self.logits(X[i]))
                 if k == y[i]:
                     grad = X[i] - (probs[k] * X[i])
                 else:
